@@ -1,13 +1,9 @@
-from kivy.uix.gridlayout import GridLayout
-from kivy.app import App
+from kivymd.app import MDApp
+from kivy.lang import Builder
 
-class MyApp(App):
-
+class MyApp(MDApp):
     def build(self):
-        self.window = GridLayout()
+        return Builder.load_file("myapp.kv")
 
-        return self.window
-    
 if __name__ == '__main__':
-    app = MyApp()
-    app.run()
+    MyApp().run()
