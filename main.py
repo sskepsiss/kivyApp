@@ -9,7 +9,6 @@ from kivymd.uix.bottomnavigation.bottomnavigation import MDBottomNavigation, MDB
 from kivymd.uix.datatables import MDDataTable
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.metrics import dp
-from kivy.properties import NumericProperty
 import ssl
 from ApiCaller import ApiCaller
 from SettingsService import SettingsService
@@ -25,9 +24,9 @@ class MapViewTanker(FloatLayout):
     -------------------
     '''  
 
-    lat = NumericProperty(0)
-    lon = NumericProperty(0)
-    zoom = NumericProperty(0)
+    lat = 0
+    lon = 0
+    zoom = 0
 
     def __init__(self, **kwargs):
         '''
