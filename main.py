@@ -47,11 +47,11 @@ class MapViewTanker(FloatLayout):
         self.lat = lat
         self.lon = long
 
-        self.__map = self.ids.tankerMap
+        self.map = self.ids.tankerMap
 
         self.zoom = 20
 
-        assert isinstance(self.__map, MapView)
+        assert isinstance(self.map, MapView)
 
         apiCaller = ApiCaller(settingsService)
         data = apiCaller.getQueriedTankerData()
@@ -95,7 +95,7 @@ class MapViewTanker(FloatLayout):
             marker.popup_size = 100, 100
             marker.add_widget(label)
 
-            self.__map.add_marker(marker)
+            self.map.add_marker(marker)
 
     def getMarkerSourceForPrice(self, price):
         '''
@@ -112,15 +112,15 @@ class MapViewTanker(FloatLayout):
         -------------------
         '''
             
-        if (self.__lowestPrice == price):
+        if (self.lowestPrice == price):
             return 'images/green32.png'
         
-        if (self.__lowestPrice * 1.02 >= price):
+        if (self.lowestPrice * 1.02 >= price):
             return 'images/yellow32.png'
         
         return 'images/red32.png'
 
-    def __setLowestAndHighestPrice(self, data):
+    def setLowestAndHighestPrice(self, data):
         '''
         Sets the lowest and highest price based off of the dataset.
         -------------------
@@ -132,17 +132,17 @@ class MapViewTanker(FloatLayout):
         -------------------
         '''
 
-        self.__highestPrice = 0
-        self.__lowestPrice = 5
+        self.highestPrice = 0
+        self.lowestPrice = 5
 
         for dataSet in data.get('stations'):
             price = dataSet.get('price')
-            if (dataSet.get('price')) > self.__highestPrice:
-                self.__highestPrice = price
+            if (dataSet.get('price')) > self.highestPrice:
+                self.highestPrice = price
                 continue
 
-            if (dataSet.get('price')) < self.__lowestPrice:
-                self.__lowestPrice = price
+            if (dataSet.get('price')) < self.lowestPrice:
+                self.lowestPrice = price
 
 class TableView(AnchorLayout):
     '''
