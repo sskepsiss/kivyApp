@@ -6,12 +6,10 @@ from kivy.uix.label import Label
 from kivy.lang import Builder
 from kivy_garden.mapview import MapView, MapMarkerPopup
 from kivymd.uix.bottomnavigation.bottomnavigation import MDBottomNavigation, MDBottomNavigationItem
-from kivymd.uix.label import MDLabel
 from kivymd.uix.datatables import MDDataTable
 from kivy.uix.anchorlayout import AnchorLayout
-from kivy.core.window import Window
 from kivy.metrics import dp
-from kivy.properties import NumericProperty, StringProperty
+from kivy.properties import NumericProperty
 import ssl
 from ApiCaller import ApiCaller
 from SettingsService import SettingsService
