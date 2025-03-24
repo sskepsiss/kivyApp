@@ -25,9 +25,9 @@ class MapViewTanker(FloatLayout):
     -------------------
     '''  
 
-    lat = NumericProperty()
-    lon = NumericProperty()
-    zoom = NumericProperty()
+    lat = NumericProperty(0)
+    lon = NumericProperty(0)
+    zoom = NumericProperty(0)
 
     def __init__(self, **kwargs):
         '''
